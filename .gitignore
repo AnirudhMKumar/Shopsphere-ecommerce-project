@@ -1,0 +1,14 @@
+# Ignore build output
+build/
+*.class
+
+# Ignore database credentials property file
+src/main/java/db.properties
+db.properties
+
+# Log files
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
