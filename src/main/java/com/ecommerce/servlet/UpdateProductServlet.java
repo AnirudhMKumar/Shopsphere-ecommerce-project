@@ -29,8 +29,10 @@ public class UpdateProductServlet extends HttpServlet {
         String category = request.getParameter("category");
         double price = Double.parseDouble(request.getParameter("price"));
         String image = request.getParameter("image");
+        int stock = Integer.parseInt(request.getParameter("stock"));
 
         Product product = new Product(id, name, description, category, price, image);
+        product.setStock(stock);
         ProductDAO productDAO = new ProductDAO();
         
         if (productDAO.updateProduct(product)) {

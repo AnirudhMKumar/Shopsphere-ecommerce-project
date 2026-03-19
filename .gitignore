@@ -1,14 +1,18 @@
-# Ignore build output
+# Sensitive files
+db.properties
+.env
+passwords.md
+
+# Java build files
+target/
 build/
 *.class
 
-# Ignore database credentials property file
-src/main/java/db.properties
-db.properties
+# Eclipse
+.project
+.classpath
+.settings/
 
-# Log files
+# Logs
 *.log
-
-# OS generated files
-.DS_Store
 Thumbs.db

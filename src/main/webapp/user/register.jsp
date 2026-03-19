@@ -21,6 +21,7 @@
             <% } %>
 
             <form action="<%= request.getContextPath() %>/register" method="post">
+                <input type="hidden" name="csrfToken" value="${sessionScope.csrfToken}">
                 <div class="mb-3">
                     <label class="form-label fw-bold" style="font-size: 13px;">Your name</label>
                     <input type="text" name="name" class="form-control rounded-1" placeholder="First and last name" required>

@@ -27,9 +27,11 @@ public class AddProductServlet extends HttpServlet {
         String description = request.getParameter("description");
         String category = request.getParameter("category");
         double price = Double.parseDouble(request.getParameter("price"));
-        String image = request.getParameter("image"); // Taking simple string path
+        String image = request.getParameter("image");
+        int stock = Integer.parseInt(request.getParameter("stock"));
 
         Product product = new Product(0, name, description, category, price, image);
+        product.setStock(stock);
         ProductDAO productDAO = new ProductDAO();
         
         if (productDAO.addProduct(product)) {

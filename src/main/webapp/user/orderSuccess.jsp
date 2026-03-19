@@ -16,8 +16,9 @@
             <h2 class="text-success fw-bold mb-3">Order Placed, thank you!</h2>
             <p class="fs-5 text-dark mb-4">Confirmation will be sent to your email.</p>
             <div class="text-start bg-light p-4 rounded-3 border mb-4">
-                <p class="mb-1 text-muted small text-uppercase fw-bold">Shipping to:</p>
-                <p class="mb-0 text-dark">Your default saved address.</p>
+                <p class="mb-1 text-muted small text-uppercase fw-bold">Payment Status: <span class="badge bg-success">Success (Simulated)</span></p>
+                <p class="mb-1 text-muted small text-uppercase fw-bold mt-3">Shipping to:</p>
+                <p class="mb-0 text-dark">Your selected address.</p>
             </div>
             <div class="d-flex justify-content-center gap-3">
                 <a href="<%= request.getContextPath() %>/userOrders" class="btn btn-warning px-4 rounded-pill shadow-sm py-2 px-4 shadow-sm border border-warning">Review or edit recent orders</a>

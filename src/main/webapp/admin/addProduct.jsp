@@ -20,6 +20,7 @@
                     <div class="alert alert-danger p-2 fs-6">Failed to add product. Please check your inputs.</div>
                 <% } %>
                 <form action="<%= request.getContextPath() %>/addProduct" method="post">
+                    <input type="hidden" name="csrfToken" value="${sessionScope.csrfToken}">
                     <div class="mb-3">
                         <label class="form-label fw-bold small text-muted">Product Name</label>
                         <input type="text" name="name" class="form-control mb-1 rounded-1" required>
@@ -42,6 +43,10 @@
                     <div class="mb-3">
                         <label class="form-label fw-bold small text-muted">Image URL</label>
                         <input type="text" name="image" class="form-control mb-1 rounded-1" placeholder="e.g. image.jpg or https://via.placeholder.com/200" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold small text-muted">Initial Stock Quantity</label>
+                        <input type="number" name="stock" class="form-control mb-1 rounded-1" value="10" min="0" required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label fw-bold small text-muted">Description</label>

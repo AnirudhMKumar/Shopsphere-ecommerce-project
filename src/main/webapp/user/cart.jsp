@@ -43,6 +43,7 @@
                             
                             <div class="d-flex align-items-center mt-3">
                                 <form action="<%= request.getContextPath() %>/updateCart" method="post" class="d-flex align-items-center me-4">
+                                    <input type="hidden" name="csrfToken" value="${sessionScope.csrfToken}">
                                     <input type="hidden" name="cartId" value="<%= c.getId() %>">
                                     <select name="quantity" class="form-select form-select-sm border border-secondary shadow-sm rounded-2 me-2" style="width: 70px; background-color: #f0f2f2;" onchange="this.form.submit()">
                                         <% for(int i=1; i<=10; i++) { %>

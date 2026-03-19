@@ -23,6 +23,9 @@
         <% } %>
         <% if (currentUser != null) { %>
             <li class="nav-item">
+                <a class="nav-link text-white" href="<%= request.getContextPath() %>/profile">Profile</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link text-white" href="<%= request.getContextPath() %>/userOrders">Orders</a>
             </li>
             <li class="nav-item">

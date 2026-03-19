@@ -27,6 +27,7 @@
             <% } %>
 
             <form action="<%= request.getContextPath() %>/login" method="post">
+                <input type="hidden" name="csrfToken" value="${sessionScope.csrfToken}">
                 <div class="mb-3">
                     <label class="form-label fw-bold" style="font-size: 13px;">Email</label>
                     <input type="email" name="email" class="form-control rounded-1" required>

@@ -8,6 +8,8 @@ public class Order {
     private double totalAmount;
     private Timestamp orderDate;
     private String status;
+    private int addressId;
+    private String paymentMethod;
 
     public Order() {}
 
@@ -33,4 +35,10 @@ public class Order {
 
     public String getStatus() { return status; }
     public void setStatus(String status) { this.status = status; }
+
+    public int getAddressId() { return addressId; }
+    public void setAddressId(int addressId) { this.addressId = addressId; }
+
+    public String getPaymentMethod() { return paymentMethod; }
+    public void setPaymentMethod(String paymentMethod) { this.paymentMethod = paymentMethod; }
 }

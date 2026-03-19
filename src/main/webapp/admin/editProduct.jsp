@@ -28,6 +28,7 @@
                     <div class="alert alert-danger p-2 fs-6">Failed to update product. Please check your inputs.</div>
                 <% } %>
                 <form action="<%= request.getContextPath() %>/updateProduct" method="post">
+                    <input type="hidden" name="csrfToken" value="${sessionScope.csrfToken}">
                     <input type="hidden" name="id" value="<%= p.getId() %>">
                     <div class="mb-3">
                         <label class="form-label fw-bold small text-muted">Product Name</label>
@@ -51,6 +52,10 @@
                     <div class="mb-3">
                         <label class="form-label fw-bold small text-muted">Image URL</label>
                         <input type="text" name="image" class="form-control mb-1 rounded-1" value="<%= p.getImage() %>" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold small text-muted">Stock Quantity</label>
+                        <input type="number" name="stock" class="form-control mb-1 rounded-1" value="<%= p.getStock() %>" min="0" required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label fw-bold small text-muted">Description</label>

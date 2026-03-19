@@ -37,8 +37,19 @@
                 <p class="text-dark"><%= p.getDescription() %></p>
                 
                 <div class="mt-5 p-4 border rounded bg-white shadow-sm" style="max-width: 300px;">
-                    <h5 class="text-success mb-3">In Stock.</h5>
-                    <a href="<%= request.getContextPath() %>/addToCart?productId=<%= p.getId() %>" class="btn btn-warning w-100 rounded-pill mb-2 shadow-sm">Add to Cart</a>
+                    <% if (p.getStock() > 0 && p.getStock() <= 5) { %>
+                        <h5 class="text-warning mb-2 fw-bold">Only <%= p.getStock() %> left!</h5>
+                    <% } else if (p.getStock() <= 0) { %>
+                        <h5 class="text-danger mb-2 fw-bold">Out of Stock</h5>
+                    <% } else { %>
+                        <h5 class="text-success mb-2 fw-bold">In Stock.</h5>
+                    <% } %>
+
+                    <% if (p.getStock() > 0) { %>
+                        <a href="<%= request.getContextPath() %>/addToCart?productId=<%= p.getId() %>" class="btn btn-warning w-100 rounded-pill mt-2 mb-2 shadow-sm">Add to Cart</a>
+                    <% } else { %>
+                        <button class="btn btn-secondary w-100 rounded-pill mt-2 mb-2 shadow-sm" disabled>Out of Stock</button>
+                    <% } %>
                     <a href="<%= request.getContextPath() %>/products" class="btn btn-outline-secondary w-100 rounded-pill">Back to Shop</a>
                 </div>
             </div>

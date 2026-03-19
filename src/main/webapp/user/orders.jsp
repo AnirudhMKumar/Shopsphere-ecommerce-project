@@ -34,7 +34,7 @@
                 </div>
                 <div class="text-end text-muted small">
                     <span class="d-block" style="font-size: 11px;">ORDER # <%= o.getId() %></span>
-                    <a href="#" class="text-info text-decoration-none">View order details</a>
+                    <a href="<%= request.getContextPath() %>/orderDetails?id=<%= o.getId() %>" class="text-info text-decoration-none">View order details</a>
                 </div>
             </div>
             <div class="card-body py-4 px-4">
@@ -43,7 +43,7 @@
                     <span class="badge bg-<%= "Delivered".equals(o.getStatus()) ? "success" : "warning text-dark" %> px-3 py-2 rounded-1 shadow-sm"><%= o.getStatus() %></span>
                     <div>
                         <a href="<%= request.getContextPath() %>/products" class="btn btn-outline-secondary btn-sm rounded-pill px-4 me-2">Buy it again</a>
-                        <a href="#" class="btn btn-outline-secondary btn-sm rounded-pill px-4">Track package</a>
+                        <a href="<%= request.getContextPath() %>/orderDetails?id=<%= o.getId() %>" class="btn btn-outline-secondary btn-sm rounded-pill px-4">Track package</a>
                     </div>
                 </div>
             </div>
