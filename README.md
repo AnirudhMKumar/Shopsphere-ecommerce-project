@@ -1,53 +1,65 @@
-# Shopsphere E-Commerce Project
+# ShopSphere E-Commerce Project 🛒
 
-A fully functional Java-based web application for an online e-commerce platform. This project implements a complete shopping experience from product browsing to order management, built using Java Servlets, JSP, and MySQL.
+ShopSphere is a production-level Java-based e-commerce platform built with **MVC architecture** and **DAO patterns**. This project has been upgraded from a basic functional site to a secure, performant, and feature-rich application ready for production-like environments.
 
-## 🚀 Features
+## 🚀 Newly Added Features
 
-* **User Authentication:** Secure user registration, login, and profile management.
-* **Product Catalog:** Browse products, view individual product details, and high-quality images.
-* **Shopping Cart:** Add products, update quantities, and manage cart items seamlessly.
-* **Order Management:** Place orders and view order history.
-* **Admin Dashboard:** Admins can view customer orders and update order statuses.
-* **Responsive UI:** Clean, modern, and engaging user interface.
+### 🛡️ Advanced Security
+*   **Password Hashing:** Implemented **BCrypt** for secure password storage.
+*   **CSRF Protection:** Global protection against Cross-Site Request Forgery via a cryptographically secure token system and `CsrfFilter`.
+*   **XSS Protection:** Implemented HTML escaping for all user-generated content to prevent Cross-Site Scripting.
+*   **Access Control Filters:** Centralized `AuthFilter` and `AdminFilter` to protect secure routes (Cart, Profile, Admin Dashboard) at the container level.
+
+### ⚡ Performance & Infrastructure
+*   **Connection Pooling:** Migrated to **HikariCP** for high-performance database connection management.
+*   **Jakarta EE 10 / Tomcat 10**: Fully upgraded to the `jakarta.*` namespace with JSTL 3.0 support.
+*   **Clean MVC**: Strict separation of concerns between Models, DAOs, Servlets, and JSPs.
+
+### 🍱 Enhanced Functionality
+*   **Product Discovery:** Added **Category Filtering** and **Search** with real-time UI updates.
+*   **Pagination:** Smooth product browsing with paginated results (8 items per page).
+*   **User Profiles:** Dedicated profile management with identity verification and password change flows.
+*   **Order Details:** Granular order tracking including itemized breakdown and shipping address history.
+*   **Inventory Management:** Real-time stock tracking with "Out of Stock" alerts and purchase-time reduction.
 
 ## 🛠️ Tech Stack
 
-* **Frontend:** HTML5, CSS3, JavaScript, JSP (JavaServer Pages)
-* **Backend:** Java Servlets (Java EE)
-* **Database:** MySQL
-* **Server:** Apache Tomcat (v10+)
-* **IDE/Environment:** Eclipse IDE for Enterprise Java Web Developers
+*   **Frontend:** Bootstrap 5, JSTL 3.0, Vanilla CSS
+*   **Backend:** Java Servlets (Jakarta EE 10)
+*   **Database:** MySQL 8.0+
+*   **Libraries:** HikariCP (Connection Pool), jBCrypt (Security), SLF4J (Logging)
+*   **Server:** Apache Tomcat 10+
 
 ## 🔧 Local Setup Instructions
 
-Follow these steps to run the application locally in your Eclipse environment.
-
 ### 1. Database Setup
-1. Ensure MySQL is installed and running.
-2. Import the `ecommerce_db.sql` file provided in the repository root to create the database schema and sample data.
+1. Ensure MySQL is installed.
+2. Run the `migration_v2.sql` file (found in the root) to create the schema and seed the database.
    ```sql
-   mysql -u root -p < ecommerce_db.sql
+   mysql -u root -p < migration_v2.sql
    ```
 
-### 2. Configure Database Credentials
-For security reasons, database credentials are not tracked in version control. 
-1. Navigate to `src/main/java/` in the project.
-2. Create a new file named `db.properties`.
-3. Add your MySQL credentials to the file in the following format:
+### 2. Dependencies
+Ensure the following JARs are in your `src/main/webapp/WEB-INF/lib/` folder:
+*   `mysql-connector-j-x.x.x.jar`
+*   `jbcrypt-0.4.jar`
+*   `HikariCP-5.1.0.jar`, `slf4j-api-2.0.9.jar`, `slf4j-simple-2.0.9.jar`
+*   `jakarta.servlet.jsp.jstl-api-3.0.0.jar`
+*   `jakarta.servlet.jsp.jstl-3.0.1.jar`
+
+### 3. Configure Credentials
+1. Create `src/main/resources/db.properties` (or `src/main/java/db.properties` depending on your IDE build path).
+2. Add your credentials:
    ```properties
    db.url=jdbc:mysql://localhost:3306/ecommerce_db
-   db.username=YOUR_MYSQL_USERNAME
-   db.password=YOUR_MYSQL_PASSWORD
+   db.username=YOUR_USERNAME
+   db.password=YOUR_PASSWORD
    db.driver=com.mysql.cj.jdbc.Driver
    ```
 
-### 3. Import and Run in Eclipse
-1. Open Eclipse and select **File > Import > General > Existing Projects into Workspace**.
-2. Select the cloned repository folder.
-3. Ensure you have the **MySQL Connector/J** (`mysql-connector-j-x.x.x.jar`) added to your `WEB-INF/lib` folder or Java Build Path.
-4. Add the project to your Apache Tomcat server runtime.
-5. Right-click the project -> **Run As > Run on Server**.
+### 4. Run the Project
+1. Import as an **existing Dynamic Web Project** in Eclipse.
+2. Right-click project -> **Run As > Run on Server** (Select Tomcat 10).
 
 ---
-*Developed as a comprehensive e-commerce showcase highlighting MVC architecture using Java Servlets and JSP.*
+*A comprehensive Java Web Showcase by Anirudh Kumar.*
