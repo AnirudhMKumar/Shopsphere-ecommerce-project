@@ -64,5 +64,8 @@ Ensure the following JARs are in your `src/main/webapp/WEB-INF/lib/` folder:
 ---
 *A comprehensive Java Web Showcase by Anirudh Kumar.*
 
+## 🤝 Contributing
+Contributions, issues, and feature requests are welcome! Feel free to open a pull request or submit an issue.
+
 ## 📝 License
 This project is open-source and available under the MIT License. 
